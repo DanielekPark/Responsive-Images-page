@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Images</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/picturefill.min.js" async></script> <!-- tells the browser it can load this script asynchronously.-->
+  </head>
+  <body>
+    
+    <div class="wrapper">
+      <picture>
+        <source
+          media="(orientation: landscape)"
+          srcset="img/banner-large.jpg 2048w,
+          img/banner-medium.jpg 1400w,
+          img/banner-small.jpg 800w">
+         <source
+          srcset="img/banner-square-large.jpg 1000w,
+          img/banner-square-medium.jpg 800w">
+        <img 
+          src="img/banner-medium.jpg"
+          alt="Photo of Nick Petit"
+          class="banner-image">
+      </picture>
+      <!--source element used to specify multiple media resources for media element; allows you to specify alternative video/audio/image files which the browser may choose from, 
+        based on its media type, code support or media query.-->
+<!--
+      <img 
+        sizes=
+        "50vw,
+        (min-width: 1024) 512px" 
+        srcset=
+            "img/banner-large.jpg 2048w,
+            img/banner-medium.jpg 1400w,
+            img/banner-small.jpg 800w"
+        src="img/banner-medium.jgp"
+        alt="Photograph of Nick"
+        class="banner-image">
+-->
+      <!--50vw in the sizes is another media condition-->
+      <!--2048w Width descriptor, browser doesn't know the width of the image until fully downloaded; this tells browswer the source image is going to be a certain width and choose the correct source. Chrome is 1 of the few browsers that supports this-->
+      <!--sizes attributes takes 1 or more media conditions ends with length unit; this tells the browser how much space in the layout. THIS DOESNT SET THE WIDTH OF THE IMAGE, ITS DONE THROUGH CSS-->
+      <!--if it's a small mobile screen with double pixel density we can use these elements to more carefully craft the experience, 
+        rather than wasting bandwidth or delivering images that are too low resolution. To make sure new pieces of HTML work in old and current browsers can use JS known as polyfill-->      
+      <div class="content-block">
+        
+        <div class="profile-description">
+          
+          <div class="profile-image">
+            <img 
+              srcset="
+img/photo-@2x.jpg 2x,
+img/photo-@1x.jpg 1x"
+              src="img/photo-@1x.jpg" 
+              alt="Photograph of a flower"
+              />
+            <!--src atribute was placed in side of img tag for browswers that don't recognize srcset altribute 1x is for px density-->
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas posuere nec quam vitae aliquet. Etiam sodales feugiat gravida. Donec tincidunt facilisis arcu, ut sagittis eros iaculis a. Nam fringilla erat id lorem pellentesque ornare. Curabitur sed interdum tellus. Etiam imperdiet, dui id condimentum ullamcorper, lectus nibh venenatis lectus, id ullamcorper nibh nibh id dolor. Suspendisse tempor turpis vel commodo consequat. Phasellus at posuere velit. Sed vehicula lacinia mauris sit amet mollis. Etiam semper leo blandit massa molestie congue. Sed ac purus ipsum.</p>
+          <p>Integer dignissim ultrices lacus tincidunt aliquet. Cras maximus eleifend felis. Pellentesque in nulla condimentum, aliquet orci sed, gravida velit. Pellentesque mattis ex at magna consectetur porta. Aenean eget volutpat urna. Maecenas sed nisl sit amet tortor vulputate vulputate non nec elit. Mauris bibendum erat nec purus finibus, eget molestie dolor placerat. Pellentesque at massa et ligula sagittis gravida. Nunc libero dolor, luctus ac imperdiet ac, suscipit nec nibh. Ut non diam urna.</p>
+          <p>Cras blandit at urna sagittis consequat. Integer tristique mollis metus, at varius leo imperdiet vitae. Donec a porta tellus. Sed sit amet euismod urna. Vestibulum varius urna vitae odio eleifend, et consectetur felis congue. Sed vulputate mattis mauris, eget euismod ante condimentum nec. Integer augue ex, pharetra vitae rutrum a, tristique vitae mauris.</p>
+        </div>
+        
+      </div>
+        
+    </div>
+    
+    
+  </body>
+</html>
